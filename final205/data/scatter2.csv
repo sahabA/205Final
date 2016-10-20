@@ -1,0 +1,35 @@
+department,BasePay,base,OvertimePay,overtime,gender,sizze,size
+Account,66794,67,444,4,female,1001,17.8
+Administrative,65179,65,473,5,female,1719,17.0
+Airport,75093,75,6040,60,female,231,15.1
+Animal Control,52589,53,2622,26,female,46,15.1
+City,63502,64,1439,14,female,7811,17.5
+Construction,105023,105,1116,11,female,2547,10.5
+Court,79574,80,203,2,female,1270,19.0
+Emergency,108000,108,4471,45,female,47,11.9
+Executive,153798,154,43,0,female,332,15.9
+Fire,113121,113,20791,208,female,842,8.4
+Labourer,48604,49,2279,23,female,868,12.6
+Medical,82385,82,3004,30,female,12388,17.8
+Municipal,67487,67,2833,28,female,876,11.3
+Other,86675,87,1765,18,female,6759,14.4
+Police,96639,97,8377,84,female,2338,9.8
+Recreation,56857,57,3220,32,female,274,14.2
+Transit,65676,66,9724,97,female,1968,10.3
+Account,70944,71,281,3,male,122,2.2
+Administrative,72397,72,2201,22,male,307,3.0
+Airport,86332,86,12134,121,male,75,4.9
+Animal Control,56257,56,2106,21,male,15,4.9
+City,68942,69,2583,26,male,1117,2.5
+Construction,97594,98,6061,61,male,2315,9.5
+Court,103210,103,220,2,male,70,1.0
+Emergency,125658,126,22380,224,male,32,8.1
+Executive,164830,165,190,2,male,85,4.1
+Fire,112835,113,27320,273,male,1156,11.6
+Labourer,56800,57,3429,34,male,513,7.4
+Medical,81072,81,3301,33,male,1498,2.2
+Municipal,77891,78,6901,69,male,680,8.7
+Other,88920,89,4775,48,male,2636,5.6
+Police,103053,103,16373,164,male,2433,10.2
+Recreation,57792,58,5499,55,male,112,5.8
+Transit,67767,68,15948,159,male,1855,9.7
