@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Who is getting short changed?</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="js/c3/c3.css" rel="stylesheet" type="text/css">
+	
+    <link rel="stylesheet" type="text/css" href="./explodingBoxplot.css">
+	<!-- Load d3.js and c3.js -->
+	<script src="http://d3js.org/d3.v3.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.7/d3-tip.min.js"></script>
+	<script src="js/c3/c3.min.js"></script>
+	 <script src="http://code.jquery.com/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="http://onehackoranother.com/projects/jquery/tipsy/stylesheets/tipsy.css" type="text/css" title="no title" charset="utf-8"/>
+	      <script src="http://d3js.org/d3.v3.js"></script>
+
+
+
+	
+	<script type="style">
+	.c3-region.regionY {
+	  fill: pink;
+	}
+	.c3-region.region {
+	  fill: #DDDDDD;
+	}
+	blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+	</script>
+	<style type="text/css">
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		  opacity: 1;
+		}
+
+		.axis text { font-size:10px; }
+
+		body { font: 12px sans-serif; }
+		.circles { opacity: .8; }
+		
+		.legendGuide {
+			padding: 20px 20px;
+			margin : 10px 10px;
+		}
+
+		.tipsy { font-size:11px; margin-top:-10px;}
+
+		.guide line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		  opacity: 0;
+		}
+		td, th {
+  padding: 1px 4px;
+}
+	</style>
+<!-- Custom CSS -->
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+</head>
+
+<body style="margin:0;padding:0">
+
+    <!-- Navigation -->
+    <!--nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container" style="margin:0;padding:0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="backend.html">Backend</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav-->
+
+    <!-- Full Width Image Header -->
+    <!--header class="header-image">
+        
+    </header>
+
+    <!-- Page Content -->
+
+    <div class="container" style="margin-right:1; margin-left:1; padding:50">
+<h1 class="headline"><div class="featurette-image img-circle img-responsive pull-right"> Debunking the Claim: The Gender Pay Gap
+                is a Myth</div>
+            </h1>
+
+        <hr class="featurette-divider">
+        <!-- First Featurette -->
+        <div class="featurette" id="#">
+		
+            <div class="featurette-image img-circle img-responsive pull-left"><div id="chartOverview"></div><span class="text-muted">
+			Graph of Average Base Pay For Men and Women, 2011-2014 </span><button id = "replay" class="btn btn-primary" type="submit"
+								onclick = "replay()">Replay</button></div>
+            
+            <p class="lead">An analyses of data for Salaries for government employees of San Fransico showed that their women employees earn, on average, 84 cents for every dollar earned by men. Nationally, in 2014 women earned about 79 cents for every dollar earned by men. This pay gap exist in nearly every occupation.
+Even though, statistical analysis of available data gives a detailed understanding of this gap, the issue has been widely debated. The right wing policy makers and activists have called this gap a myth. While, AAUW’s The Simple Truth about the Gender Pay Gap addresses these in their very detailed report, we uses data visualization as a tool to show some of these apparent gaps, and debunk the widely misrepresented reasons to call gender pay gap a myth.
+
+
+			</p>
+		</div>	
+        <hr class="featurette-divider">
+			<div id="table1"></div>
+        
+
+        <hr class="featurette-divider"--->
+
+        <!-- Second Featurette -->
+		<div class="featurette" id="#"><p class="lead">
+		The most common reasons for calling gender pay gap a myth reported by articles,<em> The ‘Wage Gap’ Myth That Won’t Die,
+Wall Street Journal</em> and <em>What’s the real gender pay gap?</em>, Washington Post are:</p>
+		
+            <h2 class="featurette-heading">Reasoning #1: The Gap Mostly Exists Because ... (hint: Men work more over time hours)
+                
+            </h2>
+            <p class="lead"><blockquote><em>
+			
+			“Full-time employment is technically defined as more than 35 hours. This raises an obvious problem: A simple side-by-side comparison of all men and all women includes people who work 35 hours a week, and others who work 45. Men are significantly more likely than women to work longer hours.”  – WSJ</em></blockquote>
+			</p><br/><br/>
+			<p class="lead">
+			It is true that in many departments, men are making more money in overtime, but it is impossible to tell from the available data if their hourly rate is same as women and they are truly putting in more hours than women in similar jobs as theirs.</p><p class="lead">
+			Nonetheless, women are also being discriminated on their base salaries, which can be seen here and in our next visualizations .
+			</p> <button id = "groupchart2" class="btn btn-primary" type="submit"
+								onclick = "updatchart2()">		Compare Net Income</button>
+			
+			<div class="featurette-image img-circle img-responsive pull-left">
+				
+				<div id="chart3b"></div>
+				<span class="text-muted">
+							Graph of Average Base, Benefits,
+							Overtime and Other Salaries
+							For Men and Women, 2011-2014 <br/>
+							*Data not available for 2011
+				</span>
+				
+			</div>
+			</div>
+
+        <hr class="featurette-divider">
+
+        <!-- Third Featurette-->
+		<div class="featurette" id="#">
+		<h2 class="featurette-heading">Reasoning #2: Career Choices
+                
+            </h2>
+            <p class="lead"><blockquote><em>
+			“Career choice is another factor. Research in 2013 by Anthony Carnevale, a Georgetown University economist, shows that women flock to college majors that lead to lower-paying careers. Of the 10 lowest-paying majors—such as “drama and theater arts” and “counseling psychology”—only one, “theology and religious vocations,” is majority male.
+Conversely, of the 10 highest-paying majors—including “mathematics and computer science” and “petroleum engineering”—only one, “pharmacy sciences and administration,” is majority female. Eight of the remaining nine are more than 70% male.” – WSJ</em></blockquote>
+</p><br/><p class="lead">
+Those numbers do not reflect the number of proportion of men and women in each department and job titles in San Francisco government employment pool.
+ The following visualization shows the scatter pot for average base salary and overtime pay for full time employees for each department. The size of the bubble show the percentage of employees in each gender with respect to their department. For spotting patterns visually, male employees are donated by a blue outline, whereas female employees are donated by red outline of the data points. Hover over a department in the legend to see more information about that department.
+
+			</p>
+		<div class="featurette-image img-circle img-responsive pull-left">
+
+				<span class="text-muted">
+					Hover legend for more Information for each department
+				</span>
+				<button id = "scatterchart" class="btn btn-primary" type="submit"
+								onclick = "highlightGender()">		See Pays by Gender Only</button>
+				<div id="scatter"></div>
+				<span class="text-muted">
+														Average Base Salary vs Overtime Pay for Men & Women by Department for 2014
+				</span>
+			
+
+		</div>
+		<div class="featurette-image img-circle img-responsive pull-right">
+						
+			
+				
+				<div id="table6"></div>
+		</div>
+	</div>
+            
+
+        <hr class="featurette-divider">
+				<div class="featurette" id="#">
+		<h2 class="featurette-heading">
+			Reasoning #3: Low Level Jobs vs High Level Job
+                
+            </h2>
+            <p class="lead">
+			<blockquote><em>“[..] women remain more concentrated than men in lower-paying industries and occupations. They work disproportionately as health-care aides, receptionists, cashiers and food servers. This drags down women’s average wages. The second big difference is that women still have slightly less on-the-job experience than men. This, too, lowers their average wages.” -Washington Post</em> </blockquote></p><br/><p class="lead">
+The following visualization show distribution of pay for each department, separated by their title. For spotting patterns visually, male employees are donated by a blue outline, whereas female employees are donated by red outline of the data points.
+
+			</p>
+		<div class="featurette-image img-circle img-responsive pull-left">
+				
+					<span> Departments <div id="filter"></div></span>
+					<br/><br/>
+				<span class="text-muted"><div id="boxplotTitle">
+					Distribution of Average Base Pay for Men & Women by Title for Police Department for 2014 </div>
+				</span>
+			
+					<div class="featurette-image img-circle img-responsive pull-left">
+				<div id="pointDistributions"></div>
+				</div>
+			</div>
+            
+			</div>
+			<hr class="featurette-divider">
+				<div class="featurette" id="#">
+				<span class="text-muted">
+					Conclusion: Vote For Hillary!!<br/><br/>
+					Links:<br/><br/>
+					Data: 2011–2014 salaries for San Francisco <br/> http://transparentcalifornia.com/salaries/san-francisco/ <br/><br/>
+					Articles: <br/><br/>
+					What’s the real gender pay gap? <br/>https://www.washingtonpost.com/opinions/whats-the-real-gender-pay-gap/2016/04/24/314a90ee-08a1-11e6-bdcb-0133da18418d_story.html <br/><br/>The ‘Wage Gap’ Myth That Won’t Die
+You have to ignore many variables to think women are paid less than men. California is happy to try.<br/>
+					http://www.wsj.com/articles/the-wage-gap-myth-that-wont-die-1443654408 </br></br>
+					The Simple Truth about the Gender Pay Gap (Spring 2016)<br/>
+					http://www.aauw.org/research/the-simple-truth-about-the-gender-pay-gap/ 
+				</span>
+				</div>
+				<hr class="featurette-divider">
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>w209 project, Spring 2016 by Sahab Aslam</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	  <script src="js/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+	
+	<script src="js/jquery.tpsy.js" type="text/javascript" charset="utf-8"></script>
+	
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.7/d3-tip.min.js"></script>
+	<script src="js/mix3.js"></script>
+	<script src="js/parC.js"></script>
+	  <script src="pDxbpTitle.js"></script>
+      <script src="boxplot2.js"></script>
+	   <script>
+         boxPlotFunctions.defaultDistribution('d3-tip', 'data/SFPolice.json');
+      </script>
+
+</body>
+
+</html>
